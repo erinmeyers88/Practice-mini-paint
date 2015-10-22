@@ -22,26 +22,47 @@ var colors = 'white green red blue yellow';
   
   
   $('#red').on('click', function() {
+    $(this).removeClass(colors);
     color = 'red';
   })
 
   $('#blue').on('click', function() {
+    $(this).removeClass(colors);
     color = 'blue';
   })
 
   $('#green').on('click', function() {
+    $(this).removeClass(colors);
     color = 'green';
   })
 
   $('#yellow').on('click', function() {
+    $(this).removeClass(colors);
     color = 'yellow';
   })
 
   $('#white').on('click', function() {
+    $(this).removeClass(colors);
     color = 'white';
   })
   
+  //Makes it so you can drag
   
+  var isPressed = false;
   
+  $(".box").on("mousedown", function(){
+    isPressed = true;
+  })
+  
+  $(".box").on("mouseup", function(){
+    isPressed = false;
+  })
+  
+  $(".box").on("mouseenter", function() {
+    if (isPressed) {
+      $(this).removeClass(colors);
+      $(this).addClass(color);
+    }
+  })
   
 })
